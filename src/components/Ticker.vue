@@ -14,10 +14,10 @@ export default {
     }
   },
   mounted () {
-    const min = 25
-    const max = 40
-    this.parseText(this.$refs.text, this.generateCipher(Math.floor(Math.random() * (max - min) + min)))
-    this.cipherInterval = setInterval(_ => this.parseText(this.$refs.text, this.generateCipher(Math.floor(Math.random() * (max - min) + min))), 10000)
+    const MIN_CIPHER_LENGTH = 25
+    const MAX_CIPHER_LENGTH = 40
+    this.parseText(this.$refs.text, this.generateCipher(Math.floor(Math.random() * (MAX_CIPHER_LENGTH - MIN_CIPHER_LENGTH) + MIN_CIPHER_LENGTH)))
+    this.cipherInterval = setInterval(_ => this.parseText(this.$refs.text, this.generateCipher(Math.floor(Math.random() * (MAX_CIPHER_LENGTH - MIN_CIPHER_LENGTH) + MIN_CIPHER_LENGTH))), 10000)
   },
   beforeDestroy () {
     clearInterval(this.cipherInterval)
@@ -27,8 +27,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../sass/variables.scss';
-@import '../sass/screens.scss';
+@import 'src/sass/variables.scss';
+@import 'src/sass/screens.scss';
 
 .ticker {
     font-family: 'UF1';

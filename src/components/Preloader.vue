@@ -4,7 +4,7 @@
             <div class="hacking-wrapper">
                 <Icon :class="['caution-wrapper', {'hacked': percent >= 100}]" name="caution" />
                 <h2 class="title">
-                    <template v-if="percent < 100">HACKING</template>
+                    <template v-if="isHacking">HACKING</template>
                     <template v-else>HACKED</template>
                 </h2>
                 <span class="percent">{{ Math.floor(percent) }}%</span>
@@ -36,6 +36,11 @@ export default {
       this.codes = this.generateCipher(Math.random() * 20)
     }, 30)
   },
+  computed: {
+    isHacking () {
+      return this.percent < 100
+    }
+  },
   beforeDestroy () {
     clearInterval(this.codesInterval)
   },
@@ -47,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../sass/variables.scss';
+@import 'src/sass/variables.scss';
 
 .preloader {
     position: fixed;

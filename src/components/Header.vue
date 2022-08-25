@@ -4,8 +4,8 @@
         <nav>
             <ul>
                 <li v-for="n of links.length" :key="n">
-                    <router-link :to="links[n-1].path" :class="[{'current': '/' + links[n-1].path === $route.path}]">
-                        <span :ref="`path-${n - 1}`">{{ links[n-1].name }}</span>
+                    <router-link :to="links[n-1].path" :class="[{'current': checkIsCurrentLink(links[n - 1].path)}]">
+                        <span :ref="`path-${n - 1}`">{{ links[n - 1].name }}</span>
                     </router-link>
                 </li>
             </ul>
@@ -22,13 +22,13 @@ export default {
       return this.$store.state.navigation.links
     }
   },
+  methods: {
+    checkIsCurrentLink (path) {
+      return `/${path}` === this.$route.path
+    }
+  },
   mounted () {
-    this.parseText(this.$refs.name, 'DMITRY MUZYCHENKO')
-    setTimeout(() => {
-      for (let i = 0; i < this.links.length; i++) {
-        this.parseText(this.$refs[`path-${i}`], 'redsadasd asd asdasdsa dasd as')
-      }
-    }, 100)
+    this.parseText(this.$refs.name, this.$store.state.profile.fullname)
   },
   mixins: [parsingMixin]
 }

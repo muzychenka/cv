@@ -1,17 +1,17 @@
 export default {
   methods: {
     slideLeft () {
-      let index = this.getViewIndex()
+      const index = this.getViewIndex()
       if (!isNaN(index)) {
-        if (index === 0) this.$router.push(this.links[this.links.length - 1].path)
-        else this.$router.push(this.links[--index].path)
+        const isFirstIndex = !index
+        this.$router.push(this.links[isFirstIndex ? this.links.length - 1 : index - 1].path)
       }
     },
     slideRight () {
-      let index = this.getViewIndex()
+      const index = this.getViewIndex()
       if (!isNaN(index)) {
-        if (index === this.links.length - 1) this.$router.push(this.links[0].path)
-        else this.$router.push(this.links[++index].path)
+        const isLastIndex = index === this.links.length - 1
+        this.$router.push(this.links[isLastIndex ? 0 : index + 1].path)
       }
     },
     getViewIndex () {
