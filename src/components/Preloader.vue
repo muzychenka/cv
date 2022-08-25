@@ -2,15 +2,15 @@
     <div class="preloader">
         <div class="bar-wrapper">
             <div class="hacking-wrapper">
-                <Icon :class="['caution-wrapper', {'hacked': percent >= 100}]" name="caution" />
+                <Icon :class="['caution-wrapper', {'hacked': !isHacking}]" name="caution" />
                 <h2 class="title">
                     <template v-if="isHacking">HACKING</template>
                     <template v-else>HACKED</template>
                 </h2>
-                <span class="percent">{{ Math.floor(percent) }}%</span>
+                <span class="percent">{{ normalizedPercent }}</span>
             </div>
             <div class="bar">
-                <div :style="{width: `${percent}%`}" class="fill"></div>
+                <div :style="loadingBarStyle" class="fill"></div>
             </div>
             <span class="codes">{{ codes }}</span>
         </div>
@@ -39,6 +39,12 @@ export default {
   computed: {
     isHacking () {
       return this.percent < 100
+    },
+    normalizedPercent () {
+      return `${Math.floor(this.percent)}%`
+    },
+    loadingBarStyle () {
+      return { width: this.normalizedPercent }
     }
   },
   beforeDestroy () {
