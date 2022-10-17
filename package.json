@@ -1,6 +1,9 @@
 {
   "name": "cyberpunk-cv",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,26 +18,14 @@
     "vue-svg-loader": "^0.16.0",
     "vuex": "^3.4.0"
   },
-  "engines": {
-    "node": "16.x"
-  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.6",
-    "@vue/cli-plugin-eslint": "~4.4.6",
     "@vue/cli-plugin-router": "~4.4.6",
     "@vue/cli-plugin-unit-mocha": "~4.4.6",
     "@vue/cli-plugin-vuex": "~4.4.6",
     "@vue/cli-service": "~4.4.6",
-    "@vue/eslint-config-standard": "^5.1.2",
     "@vue/test-utils": "^1.0.3",
-    "babel-eslint": "^10.1.0",
     "chai": "^4.1.2",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.2.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
