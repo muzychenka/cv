@@ -15,6 +15,9 @@
     "vue-svg-loader": "^0.16.0",
     "vuex": "^3.4.0"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.6",
     "@vue/cli-plugin-eslint": "~4.4.6",
