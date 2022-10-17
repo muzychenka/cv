@@ -1,11 +1,11 @@
 <template>
-    <header>
-        <h1 ref="name" class="name">&#8203;</h1>
-        <nav>
+    <header class="header">
+        <h1 class="header__name" ref="name">&#8203;</h1>
+        <nav class="">
             <ul>
                 <li v-for="n of links.length" :key="n">
-                    <router-link :to="links[n-1].path" :class="[{'current': checkIsCurrentLink(links[n - 1].path)}]">
-                        <span :ref="`path-${n - 1}`">{{ links[n - 1].name }}</span>
+                    <router-link :to="links[n-1].path" :class="[{'current': '/' + links[n-1].path === $route.path}]">
+                        <span :ref="`path-${n - 1}`">{{ links[n-1].name }}</span>
                     </router-link>
                 </li>
             </ul>
@@ -22,13 +22,13 @@ export default {
       return this.$store.state.navigation.links
     }
   },
-  methods: {
-    checkIsCurrentLink (path) {
-      return `/${path}` === this.$route.path
-    }
-  },
   mounted () {
-    this.parseText(this.$refs.name, this.$store.state.profile.fullname)
+    this.parseText(this.$refs.name, 'DMITRY MUZYCHENKO')
+    setTimeout(() => {
+      for (let i = 0; i < this.links.length; i++) {
+        this.parseText(this.$refs[`path-${i}`], 'redsadasd asd asdasdsa dasd as')
+      }
+    }, 100)
   },
   mixins: [parsingMixin]
 }
@@ -38,36 +38,61 @@ export default {
 @import 'src/sass/variables.scss';
 @import 'src/sass/screens.scss';
 
-header {
+.header {
     position: fixed;
     top: 0;
-    left: 7rem;
-    right: 0;
-    height: 7rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     backdrop-filter: blur($blur);
-    border-bottom: 1px solid $red2;
-    @include desktop {
-        border-left: 1px solid $red2;
-    }
-    padding: 0 4rem;
     z-index: 100;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        box-shadow: 0 0 20px rgba(196, 30, 37, .85);
+        bottom: -4px;
+        z-index: -1;
+        transition: .25s;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: $red;
+        bottom: -4px;
+        z-index: -1;
+        transition: .25s;
+    }
+    @include desktop {
+        left: 11rem;
+        right: calc(11rem + 4px);
+        box-sizing: border-box;
+        height: 6.5rem;
+    }
     @include non-desktop {
         left: 0;
+        right: 0;
         height: 8rem;
         flex-direction: column;
         padding: 0 2rem;
     }
-    .name {
+    &__name {
         margin: 0;
         font-family: 'UF1';
         letter-spacing: 0px;
-        color: white;
         user-select: none;
+        color: $blue;
+        text-shadow: 0 0 30px rgba(103, 226, 230, 1);
         @include desktop {
-            font-size: 4rem;
+            font-size: 1.75rem;
+            position: absolute;
+            left: 0;
+        }
+        @media (max-width: 1280px) {
+            font-size: 1rem;
         }
         @include non-desktop {
             font-size: 2.5rem;
@@ -109,24 +134,27 @@ header {
                     align-items: center;
                     justify-content: center;
                     font-family: 'RobotoCondensed-Regular';
-                    font-size: 1.75rem;
-                    color: $gray;
+                    font-size: 1.35rem;
+                    color: $red3;
                     text-decoration: none;
                     letter-spacing: 2px;
                     position: relative;
+                    text-transform: uppercase;
                     transition: .25s;
-                    &.current,
-                    &:hover {
-                        color: white;
+                    &.current {
+                        color: $blue;
+                        text-shadow: 0 0 20px rgba(103, 226, 230, .95);
+                    }
+                    &:not(.current):hover {
+                        color: $red;
                     }
                     &:after {
                         content: "";
                         position: absolute;
                         height: 4px;
-                        background-color: $red;
-                        box-shadow: 0 0 15px $red;
-                        border-radius: 2px;
-                        bottom: -2px;
+                        background-color: $blue;
+                        box-shadow: 0 0 15px $blue;
+                        bottom: -4px;
                         transition: .25s;
                     }
                     &:not(.current):after {

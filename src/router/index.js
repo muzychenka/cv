@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import About from '@/views/About'
-import Experience from '@/views/Experience'
-import Skills from '@/views/Skills'
+import About from '../views/About'
+import Experience from '../views/Experience'
+import Skills from '../views/Skills'
 
 Vue.use(VueRouter)
 

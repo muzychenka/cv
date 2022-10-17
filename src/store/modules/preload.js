@@ -2,10 +2,6 @@ export default {
   state: {
     images: [
       {
-        name: 'background',
-        path: './img/background.png'
-      },
-      {
         name: 'defaultPhoto',
         path: './img/me.jpg'
       },

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="normalizedWrapperClass">
     <Web v-if="computedName === 'web'" />
     <LinkedIn v-if="computedName === 'linkedin'" />
     <Instagram v-if="computedName === 'instagram'" />
@@ -52,9 +52,12 @@ import Caution from '@/assets/icons/caution.svg'
 export default {
   name: 'Icon',
   props: {
-    name
+    name: String
   },
   computed: {
+    normalizedWrapperClass () {
+      return 'icon-' + this.name
+    },
     computedName () {
       return this.name.toLowerCase()
     }

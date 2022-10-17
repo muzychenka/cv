@@ -1,12 +1,13 @@
 <template>
-    <aside>
+    <aside class="aside">
         <ul class="icons">
-            <li v-for="n in links.length" :key="n" class="icon">
-              <a :href="links[n - 1].url">
+            <li v-for="n in links.length" :key="n" class="icons__icon">
+              <a class="icons__link" :href="links[n - 1].url">
                 <component :is="'Icon'" :name="links[n - 1].name"></component>
               </a>
             </li>
         </ul>
+        <div class="aside__ticker" ref="ticker"></div>
     </aside>
 </template>
 
@@ -14,6 +15,12 @@
 import Icon from '@/components/Icon'
 
 export default {
+  mounted () {
+    setInterval(() => {
+      const value = this.$refs.ticker.innerText
+      this.$refs.ticker.innerText = value.length >= 6 ? '' : value + '|'
+    }, 1000)
+  },
   computed: {
     links () {
       return this.$store.state.social.links
@@ -29,63 +36,73 @@ export default {
 @import 'src/sass/variables.scss';
 @import 'src/sass/screens.scss';
 
-aside {
+.aside {
     width: 7rem;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     backdrop-filter: blur($blur);
     position: fixed;
-    top: 7rem;
     bottom: 0;
     left: 0;
     z-index: 100;
-    border-top: 1px solid $red2;
-    @include desktop {
-        border-right: 1px solid $red2;
+    &__ticker {
+      font-size: 1.5rem;
+      color: $red;
+      font-weight: bold;
+      position: absolute;
+      left: 2.5rem;
+      bottom: 2rem;
+      user-select: none;
+      @include non-desktop {
+        display: none;
+      }
     }
     @include non-desktop {
         width: 100%;
         height: 5rem;
         top: auto;
         bottom: 0;
+        border-top: 2px solid $red;
+        box-sizing: border-box;
     }
-    .icons {
-      margin: 0;
-      list-style: none;
+}
+
+.icons {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  @include non-desktop {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 1rem 2rem;
+      justify-content: center;
+  }
+  @include desktop {
+      flex-direction: column;
+      padding: 4rem 0;
+  }
+  gap: 4rem;
+  &__icon {
       display: flex;
-      @include non-desktop {
-          box-sizing: border-box;
-          height: 100%;
-          padding: 1rem 2rem;
-          justify-content: center;
-      }
-      @include desktop {
-          flex-direction: column;
-          padding: 4rem 0;
-          border-bottom: 1px solid $red2;
-      }
-      gap: 4rem;
-      .icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          svg {
-              width: 2.25rem;
-              height: 2.25rem;
-              opacity: 1;
+      align-items: center;
+      justify-content: center;
+      svg {
+          width: 2.25rem;
+          height: 2.25rem;
+          transition: .25s;
+          filter: drop-shadow(0 0 20px rgba(196, 30, 37, 1));
+          path {
+              fill: $red;
               transition: .25s;
+          }
+          &:hover {
               path {
-                  fill: $red2;
-                  transition: .25s;
-              }
-              &:hover {
-                  opacity: 1;
-                  filter: none;
-                  path {
-                      fill: $red;
-                  }
+                  fill: $red;
               }
           }
       }
-    }
+  }
 }
 </style>

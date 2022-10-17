@@ -1,18 +1,26 @@
 <template>
     <div class="preloader">
+        <div class="process-wrapper">
+            <div v-for="(image, index) in currentCaching" :key="'process-line-' + index" class="process-wrapper__line">
+                <span class="process-wrapper__title">CACHING........IMAGE</span>
+                <span class="process-wrapper__filename">FILENAME: {{ image.name }}</span>
+                <span class="process-wrapper__path">PATH: {{ image.path }}</span>
+                <span v-if="image.cached !== undefined" class="process-wrapper__result">RESULT: {{ image.cached ? 'SUCCESS' : 'FAILED'}}</span>
+            </div>
+        </div>
         <div class="bar-wrapper">
-            <div class="hacking-wrapper">
-                <Icon :class="['caution-wrapper', {'hacked': !isHacking}]" name="caution" />
-                <h2 class="title">
-                    <template v-if="isHacking">HACKING</template>
-                    <template v-else>HACKED</template>
+            <div class="preparing-wrapper">
+                <Icon :class="['caution-wrapper', {ready: isReady}]" name="caution" />
+                <h2 class="preparing-wrapper__title">
+                    <template v-if="!isReady">PREPARING</template>
+                    <template v-else>READY</template>
                 </h2>
-                <span class="percent">{{ normalizedPercent }}</span>
+                <span class="preparing-wrapper__percent">{{ Math.floor(percent) }}%</span>
             </div>
             <div class="bar">
-                <div :style="loadingBarStyle" class="fill"></div>
+                <div :style="{width: `${percent}%`}" class="bar__fill"></div>
             </div>
-            <span class="codes">{{ codes }}</span>
+            <span class="bar-wrapper__codes">{{ codes }}</span>
         </div>
     </div>
 </template>
@@ -23,7 +31,8 @@ import parseMixin from '@/mixins/parsing'
 
 export default {
   props: {
-    percent: Number
+    percent: Number,
+    currentCaching: Array
   },
   data () {
     return {
@@ -36,19 +45,13 @@ export default {
       this.codes = this.generateCipher(Math.random() * 20)
     }, 30)
   },
-  computed: {
-    isHacking () {
-      return this.percent < 100
-    },
-    normalizedPercent () {
-      return `${Math.floor(this.percent)}%`
-    },
-    loadingBarStyle () {
-      return { width: this.normalizedPercent }
-    }
-  },
   beforeDestroy () {
     clearInterval(this.codesInterval)
+  },
+  computed: {
+    isReady () {
+      return this.percent >= 100
+    }
   },
   mixins: [parseMixin],
   components: {
@@ -59,11 +62,9 @@ export default {
 
 <style lang="scss">
 @import 'src/sass/variables.scss';
+@import 'src/sass/screens.scss';
 
 .preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     background-color: black;
@@ -73,6 +74,24 @@ export default {
     align-items: center;
     flex-direction: column;
     user-select: none;
+    .process-wrapper {
+        display: flex;
+        gap: 2rem;
+        position: absolute;
+        left: 5rem;
+        bottom: 2.5rem;
+        @include mobile {
+            left: 2rem;
+            bottom: 2rem;
+        }
+        display: flex;
+        flex-direction: column;
+        &__line {
+            color: $red2;
+            flex-direction: column;
+            gap: .5rem;
+        }
+    }
     .bar-wrapper {
         display: flex;
         flex-direction: column;
@@ -80,15 +99,28 @@ export default {
         align-items: flex-start;
         align-self: center;
         position: relative;
-        .hacking-wrapper {
+        .preparing-wrapper {
             display: flex;
             margin-bottom: .5rem;
+            &__title {
+                color: $blue;
+                text-shadow: 0 0 20px rgba(103, 226, 230, .45);
+                font-family: 'UF1';
+                margin: 0 0 0 1rem;
+            }
+            &__percent {
+                color: $red;
+                font-family: 'UF1';
+                position: absolute;
+                right: 0;
+                align-self: flex-end;
+            }
         }
         .caution-wrapper {
             width: 1.5rem;
             height: 1.5rem;
             align-self: center;
-            &:not(.hacked) {
+            &:not(.ready) {
                 path {
                     animation: fading .5s;
                     animation-fill-mode: forwards;
@@ -108,19 +140,7 @@ export default {
                 }
             }
         }
-        .title {
-            color: $red;
-            font-family: 'UF1';
-            margin: 0 0 0 1rem;
-        }
-        .percent {
-            color: $red;
-            font-family: 'UF1';
-            position: absolute;
-            right: 0;
-            align-self: flex-end;
-        }
-        .codes {
+        &__codes {
             font-family: 'UF1';
             font-size: 1.5rem;
             color: $red;
@@ -133,7 +153,7 @@ export default {
             height: 1.5rem;
             border: 2px solid $red;
             box-shadow: 0 0 8rem $red;
-            .fill {
+            &__fill {
                 width: 50%;
                 height: 100%;
                 background-color: $red;

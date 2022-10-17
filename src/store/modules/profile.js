@@ -1,6 +1,5 @@
 export default {
   state: {
-    fullname: 'DMITRY MUZYCHENKO',
     data: [
       {
         field: 'BORN',
