@@ -3,7 +3,9 @@
         <h1
             id="title-1"
             class="page-title"
-        >&#8203;</h1>
+        >
+            &#8203;
+        </h1>
         <div class="about__wrapper">
             <div class="preview-wrapper">
                 <img
