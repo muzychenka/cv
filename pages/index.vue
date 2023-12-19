@@ -57,6 +57,7 @@
 </template>
 
 <script setup lang="ts">
+import { GLITCH_INTERVAL, GLITCH_INITIAL_TIMEOUT } from '@/constants/images'
 import { imagesEnum } from '@/enums/images'
 import { PROFILE_DATA } from '@/constants/profile'
 import { ABOUT_TITLES } from '@/constants/about'
@@ -81,8 +82,8 @@ onMounted(() => {
         glitchInterval.value = setInterval(() => {
             photoElement.value!.src = isGlitched.value ? defaultPhoto.value : glitchedPhoto.value
             isGlitched.value = !isGlitched.value
-        }, 6000)
-    }, 1500)
+        }, GLITCH_INTERVAL)
+    }, GLITCH_INITIAL_TIMEOUT)
 })
 
 const glitchedPhoto = computed(() => {
