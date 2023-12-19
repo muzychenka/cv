@@ -4,14 +4,14 @@ export function slideLeft () {
     const index = getViewIndex()
     const router = useRouter()
 
-    router.push(NAVIGATION_LINKS[!index ? NAVIGATION_LINKS.length - 1 : index - 1].path)
+    router.push('/' + NAVIGATION_LINKS[!index ? NAVIGATION_LINKS.length - 1 : index - 1].path)
 }
 
 export function slideRight () {
     const index = getViewIndex()
     const router = useRouter()
     
-    router.push(NAVIGATION_LINKS[index === NAVIGATION_LINKS.length - 1 ? 0 : index + 1].path)
+    router.push('/' + NAVIGATION_LINKS[index === NAVIGATION_LINKS.length - 1 ? 0 : index + 1].path)
 }
 
 export function getViewIndex () {
