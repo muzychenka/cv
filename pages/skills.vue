@@ -3,7 +3,9 @@
         <h1
             ref="title"
             class="page-title"
-        >&#8203;</h1>
+        >
+            &#8203;
+        </h1>
         <div class="skills__cards-wrapper">
             <div
                 v-for="skill in SKILLS"
