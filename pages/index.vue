@@ -37,7 +37,7 @@
                 </h2>
                 <article class="description__article">
                     My name is Dzmitry. I was born in Minsk, Belarus.<br>
-                    I have been working as a developer for three years. I love learning new things and I learn quickly.<br>
+                    I have been working as a developer for many years. I love learning new things and I learn quickly.<br>
                     I started my development journey by creating game servers when I studied at school.<br>
                     I've studied English with a teacher. My current level is B2.
                 </article>
@@ -53,6 +53,12 @@
                 <article class="description__article">It's my financial code. Some guys told me that it's my lucky number and I should use it everywhere.</article>
             </div>
         </div>
+        <h1
+            id="title-5"
+            class="page-title"
+        >
+            &#8203;
+        </h1>
     </div>
 </template>
 
