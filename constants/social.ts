@@ -3,7 +3,7 @@ import { socialsEnum } from '@/enums/social'
 export const SOCIAL_LINKS = [
     {
         name: socialsEnum.enum.linkedin,
-        url: 'https://www.linkedin.com/in/d-muzychenko/'
+        url: 'https://www.linkedin.com/in/muzychenka'
     },
     {
         name: socialsEnum.enum.github,
