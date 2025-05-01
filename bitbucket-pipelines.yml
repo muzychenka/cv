@@ -1,0 +1,38 @@
+image: atlassian/default-image:2
+
+pipelines:
+    custom:
+        Production:
+            - stage:
+                  name: Move dir to the remote host
+                  deployment: Production
+                  steps:
+                      - step:
+                            name: Move dir to the remote host
+                            script:
+                                - pipe: atlassian/ssh-run:0.4.1
+                                  variables:
+                                      SSH_USER: $SSH_USER
+                                      SERVER: $IP
+                                      COMMAND: 'rm -r $REMOTE_PATH || :'
+                                - echo "Dir cleaned"
+                                - pipe: atlassian/scp-deploy:0.3.3
+                                  variables:
+                                      USER: $SSH_USER
+                                      SERVER: $IP
+                                      REMOTE_PATH: $REMOTE_PATH
+                                      LOCAL_PATH: $BITBUCKET_CLONE_DIR
+                                - echo "Dir moved to remote host"
+                      - step:
+                            name: Build Docker Compose
+                            script:
+                                - pipe: atlassian/ssh-run:0.4.1
+                                  variables:
+                                      SSH_USER: $SSH_USER
+                                      SERVER: $IP
+                                      COMMAND: |
+                                          cd $REMOTE_PATH
+                                          docker stop cv-frontend || true
+                                          docker build -t cv-frontend .
+                                          docker rm cv-frontend || true
+                                          docker run -d -p ${PORT}:${PORT} --name cv-frontend cv-frontend
