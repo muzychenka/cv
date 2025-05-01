@@ -50,7 +50,7 @@ const props = defineProps<{
 }>()
 
 const codes = ref('')
-const codesInterval = ref<ReturnType<typeof setInterval> | undefined>(undefined)
+const codesInterval = ref<ReturnType<typeof setInterval>>()
 
 const isReady = computedEager(() => props.percent === 100)
 const normalizedPreloadedImages = computedEager(() =>
