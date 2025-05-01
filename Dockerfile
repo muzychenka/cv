@@ -9,6 +9,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 3020
+EXPOSE 3000
 
 CMD ["node", ".output/server/index.mjs"]
