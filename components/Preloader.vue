@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
     width: 100%;
     height: 100%;
     background-color: black;
-    z-index: 100;
+    z-index: 101;
     display: flex;
     justify-content: center;
     align-items: center;
