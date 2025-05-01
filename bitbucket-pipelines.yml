@@ -35,4 +35,4 @@ pipelines:
                                           docker stop cv-frontend || true
                                           docker build -t cv-frontend .
                                           docker rm cv-frontend || true
-                                          docker run -d -p ${PORT}:${PORT} --name cv-frontend cv-frontend
+                                          docker run -d -p ${PORT}:3000 --name cv-frontend cv-frontend
