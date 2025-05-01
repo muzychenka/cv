@@ -1,19 +1,13 @@
-import type { TSocials } from '~/enums/social'
-import { socialsEnum } from '~/enums/social'
+import { socialsEnum } from '@/enums/social'
 
-export interface ISocialLink {
-    name: TSocials
-    url: string
-}
-
-export const SOCIAL_LINKS: ISocialLink[] = [
+export const SOCIAL_LINKS = [
     {
         name: socialsEnum.enum.linkedin,
         url: 'https://www.linkedin.com/in/d-muzychenko/'
     },
     {
         name: socialsEnum.enum.github,
-        url: 'https://github.com/musicchenko'
+        url: 'https://github.com/muzychenka'
     },
     {
         name: socialsEnum.enum.telegram,

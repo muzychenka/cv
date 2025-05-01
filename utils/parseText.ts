@@ -1,13 +1,9 @@
-export function generateCipher (length: number) {
-    const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    let result = ''
-    for (let i = 0; i < length; i++) {
-        result += symbols[Math.floor(Math.random() * symbols.length)]
-    }
-    return result
-}
-
-export function parseText (element: HTMLElement | null | undefined, text: string, cipher = generateCipher(text.length), index = 0) {
+export function parseText(
+    element: HTMLElement | null | undefined,
+    text: string,
+    cipher = generateCipher(text.length),
+    index = 0
+) {
     if (!element) {
         throw new Error('Element for parse is missing')
     }
@@ -15,7 +11,9 @@ export function parseText (element: HTMLElement | null | undefined, text: string
     if (index < text.length) {
         const interval = setInterval(() => {
             const leftText = text.split('').splice(0, index)
-            const leftCipherSymbols = generateCipher(cipher.split('').splice(index, cipher.length - 1).length).split('')
+            const leftCipherSymbols = generateCipher(
+                cipher.split('').splice(index, cipher.length - 1).length
+            ).split('')
             const cipherArray = [...leftText, ...leftCipherSymbols]
             cipherArray[index] = text[index]
             element.innerText = cipherArray.join('')
