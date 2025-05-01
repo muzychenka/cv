@@ -20,7 +20,7 @@ body {
 
 .title {
     color: $blue !important;
-    text-shadow: 0 0 20px rgba(103, 226, 230, .45) !important;
+    text-shadow: 0 0 20px rgba(103, 226, 230, 0.45) !important;
 }
 
 h1 {
@@ -32,12 +32,12 @@ article {
     font-family: 'RobotoCondensed-Regular';
     font-size: 1.25rem;
     color: $yellow;
-    text-shadow: 0 0 20px rgba(235,192,59, .45);
+    text-shadow: 0 0 20px rgba(235, 192, 59, 0.45);
     letter-spacing: 2px;
     line-height: 25px;
     padding: 1rem 2rem;
     border: 2px solid $yellow;
-    background-color: rgba(29,27,32, .8);
+    background-color: rgba(29, 27, 32, 0.8);
     backdrop-filter: $blur;
     align-self: flex-start;
     position: relative;
@@ -45,10 +45,10 @@ article {
         position: absolute;
         bottom: -1.75rem;
         right: 0;
-        font-size: .75rem;
+        font-size: 0.75rem;
         color: $yellow;
         display: flex;
-        content: "127.0.0.1";
+        content: '127.0.0.1';
     }
 }
 
@@ -87,8 +87,9 @@ body {
 
 html {
     font-size: 14px;
+    -webkit-tap-highlight-color: transparent;
+
     @include non-desktop {
         font-size: 12px;
     }
-    -webkit-tap-highlight-color: transparent;
 }

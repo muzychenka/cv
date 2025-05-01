@@ -86,26 +86,31 @@ onMounted(() => {
         margin: 0;
         list-style: none;
         display: flex;
+        gap: 4rem;
+
         @include non-desktop {
             box-sizing: border-box;
             height: 100%;
             padding: 1rem 2rem;
             justify-content: center;
         }
+
         @include desktop {
             flex-direction: column;
             padding: 4rem 0;
         }
-        gap: 4rem;
+
         &__icon-link {
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         &__icon {
             width: 2.25rem;
             height: 2.25rem;
             filter: drop-shadow(0 0 20px rgba(196, 30, 37, 1));
+
             &:deep(path) {
                 fill: $red;
             }

@@ -8,8 +8,25 @@ interface IPreloadedImage extends IImage {
 const isAppLoaded = ref(false)
 const preloadedImages = ref<IPreloadedImage[]>([])
 
-export function useAppStore () {
+export function useAppStore() {
+    function setAppLoaded(state: boolean) {
+        isAppLoaded.value = state
+    }
+
+    function setPreloadedImages(images: IPreloadedImage[]) {
+        preloadedImages.value = images
+    }
+
+    function getCachedImage(name: string) {
+        return preloadedImages.value.find((image) => image.name === name)?.image
+    }
+
     return {
+        setAppLoaded,
+        setPreloadedImages,
+
+        getCachedImage,
+
         isAppLoaded,
         preloadedImages
     }
