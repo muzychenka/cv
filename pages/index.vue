@@ -15,16 +15,18 @@
                 />
                 <div class="preview-wrapper__description-wrapper">
                     <div class="preview-wrapper__description-filler">
-                        <table class="info">
-                            <tr
-                                v-for="data of PROFILE_DATA"
-                                :key="'profile-data-' + data.field"
-                                class="info__element"
-                            >
-                                <td class="info__field">{{ data.field }}</td>
-                                <td class="info__value">{{ data.value }}</td>
-                            </tr>
-                        </table>
+                        <ClientOnly>
+                            <table class="info">
+                                <tr
+                                    v-for="data of PROFILE_DATA"
+                                    :key="'profile-data-' + data.field"
+                                    class="info__element"
+                                >
+                                    <td class="info__field">{{ data.field }}</td>
+                                    <td class="info__value">{{ data.value }}</td>
+                                </tr>
+                            </table>
+                        </ClientOnly>
                     </div>
                 </div>
             </div>
@@ -89,8 +91,8 @@ const appStore = useAppStore()
 
 const photoElement = ref<HTMLImageElement>()
 const isGlitched = ref(true)
-const glitchTimeout = ref<NodeJS.Timeout | undefined>(undefined)
-const glitchInterval = ref<ReturnType<typeof setInterval> | undefined>(undefined)
+const glitchTimeout = ref<NodeJS.Timeout>()
+const glitchInterval = ref<ReturnType<typeof setInterval>>()
 
 onMounted(() => {
     for (const [index, title] of ABOUT_TITLES.entries()) {
@@ -107,8 +109,12 @@ onMounted(() => {
     }, GLITCH_INITIAL_TIMEOUT)
 })
 
-const glitchedPhoto = computed(() => appStore.getCachedImage(imagesEnum.enum.glitchedPhoto)?.src!)
-const defaultPhoto = computed(() => appStore.getCachedImage(imagesEnum.enum.defaultPhoto)?.src!)
+const glitchedPhoto = computed(
+    () => appStore.getCachedImage(imagesEnum.enum.glitchedPhoto)?.src || ''
+)
+const defaultPhoto = computed(
+    () => appStore.getCachedImage(imagesEnum.enum.defaultPhoto)?.src || ''
+)
 
 onBeforeUnmount(() => {
     clearTimeout(glitchTimeout.value)
