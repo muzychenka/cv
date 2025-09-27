@@ -24,6 +24,19 @@ export default defineNuxtConfig({
                     content:
                         'Frontend Developer, TypeScript Developer, JavaScript Developer, Vue.js Developer, Nuxt.js Developer, SolidJS Developer, Web Development, SPA Development, Modern Frontend, Responsive Web Apps, Dzmitry Muzychenka'
                 }
+            ],
+            script: [
+                {
+                    src: 'https://www.googletagmanager.com/gtag/js?id=G-P09V7YZ6C5'
+                },
+                {
+                    innerHTML: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+
+                            gtag('config', 'G-P09V7YZ6C5');`
+                }
             ]
         }
     },
