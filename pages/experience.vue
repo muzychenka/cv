@@ -6,189 +6,53 @@
         >
             &#8203;
         </h1>
-        <article class="experience__article">
-            There are some examples of my experience with short descriptions. I have much more
-            projects but I can't share them because it's forbidden.
-        </article>
         <div class="article-wrapper">
             <h2
                 id="website-1"
                 class="article-wrapper__title title"
             >
-                &#8203;
+                Summary
             </h2>
-            <article class="article-wrapper__article article">
-                Store for women's clothing. There was a landing page on the main domain, which I
-                made separately from the main store. The online store itself was on a subdomain. The
-                functionality included two admin panels (admin panel for landing and online store),
-                creating and editing categories, subcategories, products, uploading images, Google
-                Analytics. Frontend was made on
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    HTML
-                </NuxtLink>
-                ,
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    CSS
-                </NuxtLink>
-                ,
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    JS
-                </NuxtLink>
-                . Backend works on
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Node.js
-                </NuxtLink>
-                and
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    MySQL
-                </NuxtLink>
-                .
-            </article>
-        </div>
-        <div class="article-wrapper">
-            <h2
-                id="website-2"
-                class="article-wrapper__title title"
-            >
-                &#8203;
-            </h2>
-            <article class="article-wrapper__article article">
-                Women's clothing store aimed at European audience. The functionality included an
-                admin panel for creating and editing categories, subcategories, products, uploading
-                images, Google analytics was connected. The frontend was written in
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Vue
-                </NuxtLink>
-                using
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    SASS
-                </NuxtLink>
-                ,
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Vuex
-                </NuxtLink>
-                and standard routing, backend based on
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Node.js
-                </NuxtLink>
-                and
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    MySQL
-                </NuxtLink>
-                database.
-            </article>
-        </div>
-        <div class="article-wrapper">
-            <h2
-                id="website-3"
-                class="article-wrapper__title title"
-            >
-                &#8203;
-            </h2>
-            <article class="article-wrapper__article article">
-                Online lottery. Creating accounts, online ticket purchase, participation in draws,
-                as well as an admin panel was implemented. The frontend built using
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Vue
-                </NuxtLink>
-                ,
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Vuex
-                </NuxtLink>
-                and
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    SASS
-                </NuxtLink>
-                . Backend was written using
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Node.js
-                </NuxtLink>
-                and
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    MySQL
-                </NuxtLink>
-                .
-            </article>
-        </div>
-        <div class="article-wrapper">
-            <h2
-                id="website-4"
-                class="article-wrapper__title title"
-            >
-                &#8203;
-            </h2>
-            <article class="article-wrapper__article article">
-                Website for pet shelter. There were some pages made with
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Vue
-                </NuxtLink>
-                ,
-                <NuxtLink
-                    class="article__link"
-                    to="/skills"
-                >
-                    Vuex
-                </NuxtLink>
-                . Contains static information.
-            </article>
-        </div>
-        <div class="article-wrapper">
-            <h2
-                id="website-5"
-                class="article-wrapper__title title"
-            >
-                &#8203;
-            </h2>
-            <article class="article-wrapper__article article">
-                Much more experience and 3+ years of working in companies. NDA :(
+            <article class="experience__article">
+                I have built and maintained complex web platforms, e-commerce solutions,
+                cross-platform mobile applications, and real-time systems.<br />
+                My expertise spans across modern frameworks and technologies including Vue (Vue 2/3,
+                Vuex, Pinia, Nuxt 2/3), React (Redux, Next.js), TypeScript, Node.js, PHP, Magento,
+                Strapi, MySQL, Docker, WebSockets, and payment gateway integrations.<br /><br />
+                Key highlights of my work include:<br />
+                <ul>
+                    <li>
+                        Engineering real-time applications with WebSocket integrations, live data
+                        streaming, and secure workflows for sensitive document handling.
+                    </li>
+                    <li>
+                        Creating custom web tools such as a web-based image editor (Canvas, SVG) for
+                        product personalization.
+                    </li>
+                    <li>
+                        Designing and implementing admin dashboards and PWAs for fleet and booking
+                        management.
+                    </li>
+                    <li>
+                        Developing large-scale e-commerce platforms (Magento, custom frontends) with
+                        multi-store setups, international payment integrations, and optimized SEO.
+                    </li>
+                    <li>
+                        Building cross-platform mobile apps with Ionic, supporting offline mode,
+                        background sync, and real-time fleet tracking.
+                    </li>
+                    <li>
+                        Delivering SEO-optimized corporate websites with CMS integrations for
+                        scalable content management.
+                    </li>
+                    <li>
+                        Mentoring developers, conducting code reviews, teaching frontend
+                        technologies, and supporting CI/CD pipelines.
+                    </li>
+                </ul>
+                I work confidently across the entire project lifecycle — from architecture and
+                development to deployment and performance optimization — while maintaining strong
+                communication with stakeholders.
             </article>
         </div>
     </div>
@@ -230,7 +94,6 @@ onMounted(() => {
     .article-wrapper {
         display: flex;
         flex-direction: column;
-        margin-top: 2rem;
 
         .article {
             &__link {
