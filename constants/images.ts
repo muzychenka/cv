@@ -1,8 +1,8 @@
 import { imagesEnum } from '~/enums/images'
 import type { TImages } from '~/enums/images'
 
-export const GLITCH_INTERVAL = 6000
-export const GLITCH_INITIAL_TIMEOUT = 1500
+export const GLITCH_INTERVAL = 5000
+export const GLITCH_INITIAL_TIMEOUT = 2000
 
 export interface IImage {
     name: TImages
