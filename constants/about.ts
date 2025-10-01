@@ -1,1 +1,1 @@
-export const ABOUT_TITLES = ['CASE №7738', 'MAIN', 'HOBBIES', 'WHAT IS 7738?']
+export const ABOUT_TITLES = ['ABOUT ME', 'MAIN', 'HOBBIES', 'WHAT IS 7738?']
