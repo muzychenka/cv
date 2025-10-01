@@ -56,16 +56,6 @@
                     website). I also go in for sports, I like evening walks, cooking, and also
                     nightly programming.
                 </article>
-                <h2
-                    id="title-4"
-                    class="description__title title"
-                >
-                    &#8203;
-                </h2>
-                <article class="description__article">
-                    It's my financial code. Some guys told me that it's my lucky number and I should
-                    use it everywhere.
-                </article>
             </div>
         </div>
         <h1
