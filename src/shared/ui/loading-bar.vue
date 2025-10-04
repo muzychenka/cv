@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CautionIcon } from '@/shared/ui'
+import CautionIcon from './icons/CautionIcon.vue'
 import { generateCipher, LOADING_BAR_CIPHER_INTERVAL } from '@/shared/lib'
 
 const props = defineProps<{
@@ -25,8 +25,7 @@ onBeforeUnmount(() => {
 <template>
     <div class="loading-bar">
         <div class="loading-bar__wrapper">
-            <component
-                :is="CautionIcon"
+            <caution-icon
                 :class="{ 'loading-bar__caution-wrapper_ready': isReady }"
                 class="loading-bar__caution-wrapper"
             />
