@@ -1,8 +1,18 @@
 import svgLoader from 'vite-svg-loader'
+import { fileURLToPath } from 'node:url'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
+
+    alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+    },
+
+    dir: {
+        pages: './src/app/routes',
+        layouts: './src/app/layouts'
+    },
 
     app: {
         head: {
@@ -14,11 +24,6 @@ export default defineNuxtConfig({
                 }
             ],
             meta: [
-                {
-                    name: 'description',
-                    content:
-                        'Frontend Developer specializing in TypeScript, JavaScript, Vue, Nuxt, and SolidJS. Building modern, performant web applications with clean code and best practices.'
-                },
                 {
                     name: 'keywords',
                     content:
@@ -42,18 +47,19 @@ export default defineNuxtConfig({
     },
 
     imports: {
-        dirs: ['stores']
+        scan: false
     },
 
-    css: ['@/assets/scss/main.scss'],
+    css: ['@/shared/assets/scss/main.scss'],
 
     vite: {
         css: {
             preprocessorOptions: {
                 scss: {
                     additionalData: `
-                      @use '@/assets/scss/variables.scss' as *;
-                      @use '@/assets/scss/screens.scss' as *;
+                      @use '@/shared/assets/scss/fonts.scss' as *;
+                      @use '@/shared/assets/scss/variables.scss' as *;
+                      @use '@/shared/assets/scss/screens.scss' as *;
                   `
                 }
             }

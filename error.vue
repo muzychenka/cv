@@ -1,10 +1,21 @@
+<script setup lang="ts">
+import { PageTitle } from '@/shared/ui'
+
+useHead({
+    title: `404 — This page doesn't exist`
+})
+</script>
+
 <template>
-    <NuxtLayout>
+    <nuxt-layout>
         <div class="error">
-            <h2 class="error__title page-title">404</h2>
-            <div class="error__message">Sorry but this page doesn't exist</div>
+            <page-title
+                text="404"
+                class="error__title"
+            />
+            <div class="error__message">This page doesn't exist</div>
         </div>
-    </NuxtLayout>
+    </nuxt-layout>
 </template>
 
 <style scoped lang="scss">
@@ -16,28 +27,31 @@
     align-items: center;
     box-sizing: border-box;
     overflow-y: auto;
+
     @include desktop {
         padding: 4rem 11rem 7rem 11rem;
         margin-top: 6.5rem;
     }
+
     @include non-desktop {
         padding: 2rem;
         margin: 8rem 0 5rem;
     }
+
     &__title {
-        font-size: 3rem;
-        color: $blue;
-        margin-top: 0;
-        text-shadow: 0 0 50px rgba(103, 226, 230, 1);
-        @include desktop {
-            font-size: 5rem;
-        }
+        font-size: 4rem;
+        color: $color-sky-blue;
+        text-shadow: 0 0 5rem $color-sky-blue;
     }
+
     &__message {
+        font-family: 'UF1';
         font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: -0.25rem;
         font-weight: 600;
-        color: $red;
-        text-shadow: 0 0 50px rgba(196, 30, 37, 1);
+        color: $color-fire-engine-red;
+        text-shadow: 0 0 5rem $color-fire-engine-red;
     }
 }
 </style>

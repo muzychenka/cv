@@ -1,0 +1,47 @@
+<template>
+    <svg viewBox="0 0 29.97 30.98">
+        <defs>
+            <linearGradient
+                id="a"
+                x1="-161.71"
+                y1="206.59"
+                x2="-162.74"
+                y2="205.56"
+                gradientTransform="matrix(6.25, 0, 0, -6.25, 1025.83, 1297.87)"
+                gradientUnits="userSpaceOnUse"
+            >
+                <stop
+                    offset="0.18"
+                    stop-color="#0052cc"
+                />
+                <stop
+                    offset="1"
+                    stop-color="#2684ff"
+                />
+            </linearGradient>
+            <linearGradient
+                id="b"
+                x1="-161.44"
+                y1="203.65"
+                x2="-160.42"
+                y2="204.67"
+                xlink:href="#a"
+            />
+        </defs>
+        <path
+            d="M30.62,15.13,16,.51,1.38,15.13a1.23,1.23,0,0,0,0,1.74L16,31.49,30.62,16.87a1.23,1.23,0,0,0,0-1.74ZM16,20.58,11.42,16,16,11.42,20.58,16Z"
+            transform="translate(-1.02 -0.51)"
+            style="fill: #2684ff"
+        />
+        <path
+            d="M16,11.45A7.71,7.71,0,0,1,16,.58l-10.06,10L11.37,16Z"
+            transform="translate(-1.02 -0.51)"
+            style="fill: url(#a)"
+        />
+        <path
+            d="M20.59,16,16,20.58a7.71,7.71,0,0,1,0,10.9h0l10-10Z"
+            transform="translate(-1.02 -0.51)"
+            style="fill: url(#b)"
+        />
+    </svg>
+</template>

@@ -1,0 +1,1 @@
+export const LOADING_BAR_CIPHER_INTERVAL = 30
