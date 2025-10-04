@@ -73,7 +73,10 @@ onBeforeUnmount(() => {
                 </div>
             </div>
             <div class="about-me-page__description">
-                <article-title text="MAIN" />
+                <article-title
+                    text="MAIN"
+                    class="about-me-page__article-title_no-margin"
+                />
                 <article-block class="about-me-page__article-block">
                     <template #text>
                         Hi, I'm Dzmitry, originally from Minsk, Belarus. I've been working as a
@@ -119,7 +122,11 @@ onBeforeUnmount(() => {
 
     &__article-title {
         &_margin-top {
-            margin-top: 4rem;
+            margin: 4rem 0 0;
+        }
+
+        &_no-margin {
+            margin: 0;
         }
     }
 

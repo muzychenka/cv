@@ -30,7 +30,6 @@ onMounted(() => {
     align-self: flex-start;
     padding: 1rem 2rem;
     border: 0.2rem solid $color-sky-blue;
-    margin: 0;
 
     @include mobile {
         width: 100%;

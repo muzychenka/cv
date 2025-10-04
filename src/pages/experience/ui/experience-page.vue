@@ -16,7 +16,10 @@ useHead({
 <template>
     <div class="experience-page">
         <page-title text="EXPERIENCE" />
-        <article-title text="SUMMARY" />
+        <article-title
+            text="SUMMARY"
+            class="experience-page__article-title_no-margin"
+        />
         <article-block class="experience-page__article-block">
             <template #text>
                 I have built and maintained complex web platforms, e-commerce solutions,
@@ -79,6 +82,12 @@ useHead({
     @include non-desktop {
         padding: 2rem;
         margin: 8rem 0 5rem;
+    }
+
+    &__article-title {
+        &_no-margin {
+            margin: 0;
+        }
     }
 
     &__article-block {
