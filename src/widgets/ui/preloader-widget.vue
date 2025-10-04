@@ -14,7 +14,7 @@ const normalizedPreloadedImages = computedEager(() =>
 </script>
 
 <template>
-    <div class="preloader">
+    <div class="preloader-widget">
         <logs :images="normalizedPreloadedImages" />
         <loading-bar :percent="percent">
             <template #icon>
@@ -25,7 +25,7 @@ const normalizedPreloadedImages = computedEager(() =>
 </template>
 
 <style lang="scss" scoped>
-.preloader {
+.preloader-widget {
     width: 100%;
     height: 100%;
     background-color: black;
