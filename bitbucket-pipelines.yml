@@ -32,6 +32,7 @@ pipelines:
                                       SERVER: $IP
                                       COMMAND: |
                                           cd $REMOTE_PATH
+                                          export GTM=$GTM
                                           docker stop cv-frontend || true
                                           docker build -t cv-frontend .
                                           docker rm cv-frontend || true
