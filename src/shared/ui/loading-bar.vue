@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import CautionIcon from './icons/CautionIcon.vue'
 import { generateCipher, LOADING_BAR_CIPHER_INTERVAL } from '@/shared/lib'
 
 const props = defineProps<{
     percent: number
+}>()
+
+const slots = defineSlots<{
+    icon: []
 }>()
 
 const codes = ref<string>()
@@ -25,10 +28,14 @@ onBeforeUnmount(() => {
 <template>
     <div class="loading-bar">
         <div class="loading-bar__wrapper">
-            <caution-icon
+            <div
+                v-if="slots.icon"
                 :class="{ 'loading-bar__caution-wrapper_ready': isReady }"
                 class="loading-bar__caution-wrapper"
-            />
+            >
+                <slot name="icon" />
+            </div>
+
             <h2 class="loading-bar__title">
                 {{ isReady ? 'READY' : 'PREPARING' }}
             </h2>
@@ -80,7 +87,6 @@ onBeforeUnmount(() => {
         width: 1.5rem;
         height: 1.5rem;
         align-self: center;
-        fill: $color-fire-engine-red;
 
         &:not(&_ready) {
             animation: fading 0.5s;

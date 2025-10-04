@@ -2,6 +2,7 @@
     <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
+        class="caution-icon"
     >
         <path d="M16,26a2,2,0,1,1,2-2A2,2,0,0,1,16,26Zm0-2Z" />
         <path d="M16,20a1,1,0,0,1-1-1V11a1,1,0,0,1,2,0v8A1,1,0,0,1,16,20Z" />
@@ -10,3 +11,9 @@
         />
     </svg>
 </template>
+
+<style scoped lang="scss">
+.caution-icon {
+    fill: $color-fire-engine-red;
+}
+</style>

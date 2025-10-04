@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Logs, LoadingBar } from '@/shared/ui'
+import { Logs, LoadingBar, CautionIcon } from '@/shared/ui'
 import { useAppStore } from '@/entities/app'
 
 const appStore = useAppStore()
@@ -16,7 +16,11 @@ const normalizedPreloadedImages = computedEager(() =>
 <template>
     <div class="preloader">
         <logs :images="normalizedPreloadedImages" />
-        <loading-bar :percent="percent" />
+        <loading-bar :percent="percent">
+            <template #icon>
+                <caution-icon />
+            </template>
+        </loading-bar>
     </div>
 </template>
 
