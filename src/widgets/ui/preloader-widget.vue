@@ -28,7 +28,7 @@ const normalizedPreloadedImages = computedEager(() =>
 .preloader-widget {
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: $color-black;
     z-index: 101;
     display: flex;
     justify-content: center;
