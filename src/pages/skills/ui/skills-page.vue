@@ -23,8 +23,10 @@ import {
     RestIcon
 } from '@/shared/ui'
 
+const { t } = useI18n()
+
 useHead({
-    title: 'Skills',
+    title: t('skills.title'),
     meta: [
         {
             name: 'description',
@@ -57,7 +59,7 @@ const icons = computedEager(() => ({
 
 <template>
     <div class="skills-page">
-        <page-title text="SKILLS" />
+        <page-title :text="t('skills.page-title')" />
         <div class="skills-page__cards-wrapper">
             <skill-card
                 v-for="skill in SKILLS"

@@ -9,6 +9,8 @@ const slots = defineSlots<{
     icon: []
 }>()
 
+const { t } = useI18n()
+
 const codes = ref<string>()
 const codesInterval = ref<ReturnType<typeof setInterval> | undefined>(undefined)
 
@@ -37,7 +39,7 @@ onBeforeUnmount(() => {
             </div>
 
             <h2 class="loading-bar__title">
-                {{ isReady ? 'READY' : 'PREPARING' }}
+                {{ isReady ? t('loading-bar.ready') : t('loading-bar.preparing') }}
             </h2>
             <span class="loading-bar__percent">{{ Math.floor(percent) }}%</span>
         </div>
@@ -107,7 +109,7 @@ onBeforeUnmount(() => {
 
     &__title {
         color: $color-sky-blue;
-        text-shadow: 0 0 2rem rgba(103, 226, 230, 0.45);
+        text-shadow: 0 0 2rem rgba($color-sky-blue, 0.45);
         font-family: 'UF1';
         margin: 0 0 0 1rem;
     }

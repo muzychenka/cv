@@ -3,8 +3,10 @@ import { eImages, GLITCH_INTERVAL, GLITCH_INITIAL_TIMEOUT, PROFILE_DATA } from '
 import { useAppStore } from '@/entities/app'
 import { ArticleBlock, PageTitle, ArticleTitle } from '@/shared/ui'
 
+const { t } = useI18n()
+
 useHead({
-    title: 'About me',
+    title: t('about-me.title'),
     meta: [
         {
             name: 'description',
@@ -47,7 +49,7 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="about-me-page">
-        <page-title text="ABOUT ME" />
+        <page-title :text="t('about-me.page-title')" />
         <div class="about-me-page__wrapper">
             <div class="about-me-page__preview-wrapper">
                 <img
@@ -64,8 +66,8 @@ onBeforeUnmount(() => {
                                     :key="data.field"
                                     class="about-me-page__element"
                                 >
-                                    <td class="about-me-page__field">{{ data.field }}</td>
-                                    <td class="about-me-page__value">{{ data.value }}</td>
+                                    <td class="about-me-page__field">{{ t(data.field) }}</td>
+                                    <td class="about-me-page__value">{{ t(data.value) }}</td>
                                 </tr>
                             </table>
                         </client-only>
@@ -74,27 +76,21 @@ onBeforeUnmount(() => {
             </div>
             <div class="about-me-page__description">
                 <article-title
-                    text="MAIN"
+                    :text="t('about-me.main.title')"
                     class="about-me-page__article-title_no-margin"
                 />
                 <article-block class="about-me-page__article-block">
                     <template #text>
-                        Hi, I'm Dzmitry, originally from Minsk, Belarus. I've been working as a
-                        developer for many years and I'm always eager to learn and explore new
-                        technologies. My journey into IT began back in school, when I started
-                        creating game servers. I'm fluent in English at a B2 level, which allows me
-                        to collaborate effectively with international teams and projects.
+                        {{ t('about-me.main.article') }}
                     </template>
                 </article-block>
                 <article-title
-                    text="HOBBIES"
+                    :text="t('about-me.hobbies.title')"
                     class="about-me-page__article-title_margin-top"
                 />
                 <article-block class="about-me-page__article-block">
                     <template #text>
-                        I draw inspiration from video games, sports, and late-night walks. I also
-                        enjoy cooking and often spend nights coding - that's when the best ideas
-                        come to life.
+                        {{ t('about-me.hobbies.article') }}
                     </template>
                 </article-block>
             </div>
@@ -206,12 +202,12 @@ onBeforeUnmount(() => {
 
     &__field {
         color: $color-sky-blue;
-        text-shadow: 0 0 2rem rgba(103, 226, 230, 0.45);
+        text-shadow: 0 0 2rem rgba($color-sky-blue, 0.45);
     }
 
     &__value {
         color: $color-meat-brown;
-        text-shadow: 0 0 2rem rgba(235, 192, 59, 0.45);
+        text-shadow: 0 0 2rem rgba($color-meat-brown, 0.45);
     }
 
     &__description {

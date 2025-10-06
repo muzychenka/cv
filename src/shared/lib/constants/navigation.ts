@@ -2,17 +2,17 @@ export const NAVIGATION_LINKS = [
     {
         path: '/',
         routeName: 'index',
-        name: 'About me'
+        name: 'about-me.page-title'
     },
     {
         path: '/experience',
         routeName: 'experience',
-        name: 'Experience'
+        name: 'experience.page-title'
     },
     {
         path: '/skills',
         routeName: 'skills',
-        name: 'Skills'
+        name: 'skills.page-title'
     }
 ]
 

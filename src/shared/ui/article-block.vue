@@ -28,7 +28,7 @@ defineSlots<{
     font-family: 'RobotoCondensed-Regular';
     font-size: 1.25rem;
     color: $color-meat-brown;
-    text-shadow: 0 0 2rem rgba(235, 192, 59, 0.45);
+    text-shadow: 0 0 2rem rgb($color-meat-brown, 0.45);
     letter-spacing: 0.2rem;
     line-height: 2.5rem;
     padding: 1rem 2rem;

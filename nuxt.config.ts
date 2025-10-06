@@ -1,4 +1,3 @@
-import svgLoader from 'vite-svg-loader'
 import { fileURLToPath } from 'node:url'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -63,10 +62,22 @@ export default defineNuxtConfig({
                   `
                 }
             }
-        },
-        plugins: [svgLoader()]
+        }
     },
 
-    modules: ['@vueuse/nuxt', '@nuxtjs/eslint-module'],
+    modules: ['@vueuse/nuxt', '@nuxtjs/eslint-module', '@nuxtjs/i18n'],
+
+    i18n: {
+        compilation: {
+            strictMessage: false
+        },
+        restructureDir: 'src/app/i18n',
+        locales: [
+            { code: 'en', name: 'English', language: 'en-US', file: 'en.json' },
+            { code: 'be', name: 'Belarusian', language: 'be-BY', file: 'be.json' }
+        ],
+        defaultLocale: 'en'
+    },
+
     compatibilityDate: '2025-04-05'
 })

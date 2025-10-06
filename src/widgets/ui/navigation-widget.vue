@@ -1,3 +1,14 @@
+<script setup lang="ts">
+import { NAVIGATION_LINKS, parseText } from '@/shared/lib'
+import { NavigationLink } from '@/shared/ui'
+
+const nameElement = useTemplateRef('name-element')
+
+onMounted(() => {
+    parseText(nameElement.value, 'DZMITRY MUZYCHENKA')
+})
+</script>
+
 <template>
     <header class="navigation-widget">
         <h1
@@ -8,38 +19,16 @@
         </h1>
         <nav class="navigation-widget__nav">
             <ul class="navigation-widget__list">
-                <li
-                    v-for="(link, index) of NAVIGATION_LINKS"
+                <navigation-link
+                    v-for="link of NAVIGATION_LINKS"
                     :key="link.name"
-                    class="navigation-widget__list-item"
-                >
-                    <nuxt-link
-                        :to="link.path"
-                        class="navigation-widget__link"
-                        active-class="navigation-widget__link_current"
-                    >
-                        <span :id="'path-' + index">{{ link.name }}</span>
-                    </nuxt-link>
-                </li>
+                    :name="link.name"
+                    :path="link.path"
+                />
             </ul>
         </nav>
     </header>
 </template>
-
-<script setup lang="ts">
-import { NAVIGATION_LINKS, parseText } from '@/shared/lib'
-
-const nameElement = useTemplateRef('name-element')
-
-onMounted(() => {
-    parseText(nameElement.value, 'DZMITRY MUZYCHENKA')
-    setTimeout(() => {
-        for (const [index, link] of NAVIGATION_LINKS.entries()) {
-            parseText(document.getElementById('path-' + index), link.name)
-        }
-    }, 100)
-})
-</script>
 
 <style lang="scss" scoped>
 .navigation-widget {
@@ -56,7 +45,7 @@ onMounted(() => {
         position: absolute;
         width: 100%;
         height: 0.2rem;
-        box-shadow: 0 0 2rem rgba(196, 30, 37, 0.85);
+        box-shadow: 0 0 2rem rgba($color-fire-engine-red, 0.85);
         bottom: -0.3rem;
         z-index: -1;
         transition: 0.25s;
@@ -140,52 +129,6 @@ onMounted(() => {
 
         @include non-desktop {
             justify-content: space-between;
-        }
-    }
-
-    &__list-item {
-        display: flex;
-        align-items: center;
-        height: 100%;
-    }
-
-    &__link {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'RobotoCondensed-Regular';
-        font-size: 1.35rem;
-        color: $color-smoky-topaz;
-        text-decoration: none;
-        letter-spacing: 0.2rem;
-        position: relative;
-        text-transform: uppercase;
-        transition: 0.25s;
-
-        &:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 0.3rem;
-            background-color: $color-sky-blue;
-            box-shadow: 0 0 1.5rem $color-sky-blue;
-            bottom: -0.3rem;
-            transform: scaleX(0);
-            transition: 0.25s;
-        }
-
-        &_current {
-            color: $color-sky-blue;
-            text-shadow: 0 0 2rem rgba(103, 226, 230, 0.95);
-
-            &::after {
-                transform: scale(1);
-            }
-        }
-
-        &:not(&_current):hover {
-            color: $color-fire-engine-red;
         }
     }
 }

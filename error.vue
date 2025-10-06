@@ -20,7 +20,6 @@ useHead({
 
 <style scoped lang="scss">
 .error {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

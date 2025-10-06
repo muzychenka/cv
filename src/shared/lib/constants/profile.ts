@@ -1,14 +1,14 @@
 export const PROFILE_DATA = [
     {
-        field: 'BORN',
-        value: '07/07/2001'
+        field: 'about-me.description.born.title',
+        value: 'about-me.description.born.value'
     },
     {
-        field: 'SEX',
-        value: 'Male'
+        field: 'about-me.description.sex.title',
+        value: 'about-me.description.sex.value'
     },
     {
-        field: 'LOCATION',
-        value: 'Minsk, Belarus'
+        field: 'about-me.description.location.title',
+        value: 'about-me.description.location.value'
     }
 ]

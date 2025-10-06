@@ -1,0 +1,44 @@
+{
+    "loading-bar": {
+        "ready": "READY",
+        "preparing": "PREPARING"
+    },
+    "about-me": {
+        "page-title": "ABOUT ME",
+        "title": "About me",
+        "main": {
+            "title": "MAIN",
+            "article": "Hi, I'm Dzmitry, originally from Minsk, Belarus. I've been working as a developer for many years and I'm always eager to learn and explore new technologies. My journey into IT began back in school, when I started creating game servers. I'm fluent in English at a B2 level, which allows me to collaborate effectively with international teams and projects."
+        },
+        "hobbies": {
+            "title": "HOBBIES",
+            "article": "I draw inspiration from video games, sports, and late-night walks. I also enjoy cooking and often spend nights coding - that's when the best ideas come to life."
+        },
+        "description": {
+            "born": {
+                "title": "BORN",
+                "value": "07/07/2001"
+            },
+            "sex": {
+                "title": "SEX",
+                "value": "Male"
+            },
+            "location": {
+                "title": "LOCATION",
+                "value": "Minsk, Belarus"
+            }
+        }
+    },
+    "experience": {
+        "page-title": "EXPERIENCE",
+        "title": "Experience",
+        "summary": {
+            "title": "SUMMARY",
+            "article": "I have built and maintained complex web platforms, e-commerce solutions, cross-platform mobile applications, and real-time systems.<br /> My expertise spans across modern frameworks and technologies including Vue (Vue 2/3, Vuex, Pinia, Nuxt 2/3), React (Redux, Next.js), TypeScript, Node.js, PHP, Magento, Strapi, MySQL, Docker, WebSockets, and payment gateway integrations.<br /><br /> Key highlights of my work include:<br /><ul><li>Engineering real-time applications with WebSocket integrations, live data streaming, and secure workflows for sensitive document handling. </li><li>Creating custom web tools such as a web-based image editor (Canvas, SVG) for product personalization.</li><li>Designing and implementing admin dashboards and PWAs for fleet and booking management.</li><li>Developing large-scale e-commerce platforms (Magento, custom frontends) with multi-store setups, international payment integrations, and optimized SEO.</li><li>Building cross-platform mobile apps with Ionic, supporting offline mode, background sync, and real-time fleet tracking.</li><li>Delivering SEO-optimized corporate websites with CMS integrations forscalable content management.</li><li>Mentoring developers, conducting code reviews, teaching frontend technologies, and supporting CI/CD pipelines.</li></ul> I work confidently across the entire project lifecycle — from architecture and development to deployment and performance optimization — while maintaining strong communication with stakeholders."
+        }
+    },
+    "skills": {
+        "page-title": "SKILLS",
+        "title": "Skills"
+    }
+}

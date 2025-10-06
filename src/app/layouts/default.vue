@@ -33,12 +33,12 @@ onMounted(() => {
                 const { path } = imageData
 
                 image.onload = () => {
-                    appStore.preloadedImages.value[index].isLoaded = true
+                    appStore.preloadedImages.value[index]!.isLoaded = true
                     resolve('Success')
                 }
 
                 image.onerror = () => {
-                    appStore.preloadedImages.value[index].isLoaded = undefined
+                    appStore.preloadedImages.value[index]!.isLoaded = undefined
                     reject(new Error('Loading error'))
                 }
 
@@ -94,8 +94,8 @@ onBeforeUnmount(() => {
     background-size: cover;
     background-position: center;
     box-shadow: inset 7rem 7rem 10rem 2rem rgba($color-black, 0.35);
-    background: linear-gradient(rgba($color-fire-engine-red, 0.2) 1px, transparent 0.1rem),
-        linear-gradient(90deg, rgba($color-fire-engine-red, 0.2) 1px, transparent 0.1rem);
+    background: linear-gradient(rgba($color-fire-engine-red, 0.2) 0.1rem, transparent 0.1rem),
+        linear-gradient(90deg, rgba($color-fire-engine-red, 0.2) 0.1rem, transparent 0.1rem);
     background-size: 5rem 5rem;
 
     &__preloader {

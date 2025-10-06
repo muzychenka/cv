@@ -24,7 +24,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .article-title {
     color: $color-sky-blue;
-    text-shadow: 0 0 2rem rgba(103, 226, 230, 0.45);
+    text-shadow: 0 0 2rem rgba($color-sky-blue, 0.45);
     font-size: 1.5rem;
     letter-spacing: 0.2rem;
     align-self: flex-start;

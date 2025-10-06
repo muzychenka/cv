@@ -17,7 +17,7 @@ export function parseText(
                 cipher.split('').splice(index, cipher.length - 1).length
             ).split('')
             const cipherArray = [...leftText, ...leftCipherSymbols]
-            cipherArray[index] = text[index]
+            cipherArray[index] = text[index]!
             element.innerText = cipherArray.join('')
 
             if (Math.floor(Math.random() * 10) === 5) {
