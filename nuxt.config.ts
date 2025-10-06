@@ -9,9 +9,11 @@ export default defineNuxtConfig({
     },
 
     dir: {
-        pages: './src/app/routes',
-        layouts: './src/app/layouts'
+        pages: './routes',
+        layouts: './layouts'
     },
+
+    srcDir: './src/app',
 
     app: {
         head: {
@@ -79,5 +81,5 @@ export default defineNuxtConfig({
         defaultLocale: 'en'
     },
 
-    compatibilityDate: '2025-04-05'
+    compatibilityDate: '2025-07-15'
 })
