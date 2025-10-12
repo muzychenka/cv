@@ -1,27 +1,21 @@
 <script setup lang="ts">
-import { NAVIGATION_LINKS, parseText } from '@/shared/lib'
-import { NavigationLink } from '@/shared/ui'
+import { NAVIGATION_LINKS } from '@/shared/lib'
+import { NavigationLink, NameTitle } from '@/shared/ui'
 
-const nameElement = useTemplateRef('name-element')
-
-onMounted(() => {
-    parseText(nameElement.value, 'DZMITRY MUZYCHENKA')
-})
+const { t } = useI18n()
 </script>
 
 <template>
     <header class="navigation-widget">
-        <h1
-            ref="name-element"
-            class="navigation-widget__name"
-        >
-            &#8203;
-        </h1>
+        <name-title
+            :key="t('name')"
+            :name="t('name')"
+        />
         <nav class="navigation-widget__nav">
             <ul class="navigation-widget__list">
                 <navigation-link
                     v-for="link of NAVIGATION_LINKS"
-                    :key="link.name"
+                    :key="$t(link.name)"
                     :name="link.name"
                     :path="link.path"
                 />
@@ -75,28 +69,6 @@ onMounted(() => {
         height: 8rem;
         flex-direction: column;
         padding: 0 2rem;
-    }
-
-    &__name {
-        margin: 0;
-        font-family: 'UF1';
-        letter-spacing: 0;
-        user-select: none;
-        color: $color-sky-blue;
-        text-shadow: 0 0 3rem $color-sky-blue;
-        text-wrap: nowrap;
-
-        @include desktop {
-            font-size: 1.75rem;
-            position: absolute;
-            left: 0;
-        }
-
-        @include non-desktop {
-            font-size: 2.5rem;
-            margin-top: 1rem;
-            width: 100%;
-        }
     }
 
     &__nav {

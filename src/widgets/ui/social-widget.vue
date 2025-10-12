@@ -1,10 +1,29 @@
 <script setup lang="ts">
-import { LinkedInIcon, InstagramIcon, GithubIcon, TelegramIcon } from '@/shared/ui'
+import {
+    LinkedInIcon,
+    InstagramIcon,
+    GithubIcon,
+    TelegramIcon,
+    LanguageSwitcher
+} from '@/shared/ui'
 import { socialsEnum, SOCIAL_LINKS, TICKER_INTERVAL } from '@/shared/lib'
 
 const tickerInterval = ref<ReturnType<typeof setInterval>>()
+const isLanguageSwitcherOpen = ref(false)
 
 const ticker = useTemplateRef('ticker')
+
+const { locale, locales, setLocale } = useI18n()
+
+const normalizedLocales = computedEager(() =>
+    locales.value.map((locale) => {
+        return {
+            name: locale.name,
+            code: locale.code,
+            language: locale.language
+        }
+    })
+)
 
 const icons = computedEager(() => ({
     [socialsEnum.enum.linkedin]: markRaw(LinkedInIcon),
@@ -45,6 +64,13 @@ onBeforeUnmount(() => {
                 </a>
             </li>
         </ul>
+        <language-switcher
+            v-model="isLanguageSwitcherOpen"
+            :locale="locale"
+            :locales="normalizedLocales"
+            class="social-widget__language-switcher"
+            @select="(language) => setLocale(language)"
+        />
         <div
             ref="ticker"
             class="social-widget__ticker"
@@ -63,6 +89,26 @@ onBeforeUnmount(() => {
     bottom: 0;
     left: 0;
     z-index: 100;
+
+    &__icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__language-switcher {
+        position: absolute;
+        left: 1.55rem;
+        bottom: 5rem;
+
+        @include non-desktop {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            order: -1;
+            margin: 0 auto 0 0.75rem;
+        }
+    }
 
     &__ticker {
         font-size: 1.5rem;

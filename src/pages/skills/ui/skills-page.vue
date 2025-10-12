@@ -26,7 +26,7 @@ import {
 const { t } = useI18n()
 
 useHead({
-    title: t('skills.title'),
+    title: computed(() => t('skills.title')),
     meta: [
         {
             name: 'description',
@@ -59,7 +59,10 @@ const icons = computedEager(() => ({
 
 <template>
     <div class="skills-page">
-        <page-title :text="t('skills.page-title')" />
+        <page-title
+            :key="t('skills.page-title')"
+            :text="t('skills.page-title')"
+        />
         <div class="skills-page__cards-wrapper">
             <skill-card
                 v-for="skill in SKILLS"

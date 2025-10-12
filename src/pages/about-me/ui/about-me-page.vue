@@ -6,7 +6,7 @@ import { ArticleBlock, PageTitle, ArticleTitle } from '@/shared/ui'
 const { t } = useI18n()
 
 useHead({
-    title: t('about-me.title'),
+    title: computed(() => t('about-me.title')),
     meta: [
         {
             name: 'description',
@@ -49,7 +49,10 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="about-me-page">
-        <page-title :text="t('about-me.page-title')" />
+        <page-title
+            :key="t('about-me.page-title')"
+            :text="t('about-me.page-title')"
+        />
         <div class="about-me-page__wrapper">
             <div class="about-me-page__preview-wrapper">
                 <img
@@ -76,6 +79,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="about-me-page__description">
                 <article-title
+                    :key="t('about-me.main.title')"
                     :text="t('about-me.main.title')"
                     class="about-me-page__article-title_no-margin"
                 />
@@ -85,6 +89,7 @@ onBeforeUnmount(() => {
                     </template>
                 </article-block>
                 <article-title
+                    :key="t('about-me.hobbies.title')"
                     :text="t('about-me.hobbies.title')"
                     class="about-me-page__article-title_margin-top"
                 />

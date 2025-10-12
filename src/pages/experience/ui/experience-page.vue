@@ -4,7 +4,7 @@ import { ArticleBlock, PageTitle, ArticleTitle } from '@/shared/ui'
 const { t } = useI18n()
 
 useHead({
-    title: t('experience.title'),
+    title: computed(() => t('experience.title')),
     meta: [
         {
             name: 'description',
@@ -17,8 +17,12 @@ useHead({
 
 <template>
     <div class="experience-page">
-        <page-title :text="t('experience.page-title')" />
+        <page-title
+            :key="t('experience.page-title')"
+            :text="t('experience.page-title')"
+        />
         <article-title
+            :key="t('experience.summary.title')"
             :text="t('experience.summary.title')"
             class="experience-page__article-title_no-margin"
         />

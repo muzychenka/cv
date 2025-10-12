@@ -67,19 +67,18 @@ export default defineNuxtConfig({
         }
     },
 
-    modules: ['@vueuse/nuxt', '@nuxtjs/eslint-module', '@nuxtjs/i18n'],
+    modules: ['@vueuse/nuxt', '@nuxtjs/i18n'],
 
     i18n: {
+        strategy: 'no_prefix',
         compilation: {
             strictMessage: false
         },
         restructureDir: 'src/app/i18n',
         locales: [
             { code: 'en', name: 'English', language: 'en-US', file: 'en.json' },
-            { code: 'be', name: 'Belarusian', language: 'be-BY', file: 'be.json' }
+            { code: 'be', name: 'Беларуская', language: 'be-BY', file: 'be.json' }
         ],
         defaultLocale: 'en'
-    },
-
-    compatibilityDate: '2025-07-15'
+    }
 })

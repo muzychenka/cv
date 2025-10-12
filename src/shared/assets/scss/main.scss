@@ -55,5 +55,5 @@ a {
 }
 
 *::selection {
-    background-color: $color-fire-engine-red;
+    background-color: rgba($color-fire-engine-red, 0.5);
 }
