@@ -2,7 +2,9 @@
 import { IMAGES } from '@/shared/lib/constants/images'
 import { useAppStore } from '@/entities/app'
 import { useSlider } from '@/shared/lib/composables/useSlider'
-import { PreloaderWidget, SocialWidget, NavigationWidget } from '@/widgets'
+import { PreloaderWidget } from '@/widgets/preloader-widget'
+import { SocialWidget } from '@/widgets/social-widget'
+import { NavigationWidget } from '@/widgets/navigation-widget'
 
 const appStore = useAppStore()
 
