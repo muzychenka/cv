@@ -35,10 +35,10 @@ onMounted(() => {
 })
 
 const glitchedPhoto = computedEager(
-    () => appStore.getCachedImage(eImages.enum.glitchedPhoto)?.src || ''
+    () => appStore.getCachedImage(eImages.enum.glitchedPhoto)?.path || ''
 )
 const defaultPhoto = computedEager(
-    () => appStore.getCachedImage(eImages.enum.defaultPhoto)?.src || ''
+    () => appStore.getCachedImage(eImages.enum.defaultPhoto)?.path || ''
 )
 
 onBeforeUnmount(() => {

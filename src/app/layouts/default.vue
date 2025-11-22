@@ -35,25 +35,18 @@ onMounted(() => {
                 const { path } = imageData
 
                 image.onload = () => {
-                    appStore.preloadedImages.value[index]!.isLoaded = true
+                    appStore.setLoaded(index, true)
                     resolve('Success')
                 }
 
                 image.onerror = () => {
-                    appStore.preloadedImages.value[index]!.isLoaded = undefined
+                    appStore.setLoaded(index, undefined)
                     reject(new Error('Loading error'))
                 }
 
                 image.src = path
 
-                appStore.setPreloadedImages([
-                    ...appStore.preloadedImages.value,
-                    {
-                        ...imageData,
-                        isLoaded: false,
-                        image
-                    }
-                ])
+                appStore.addPreloadedImage({ ...imageData, isLoaded: false })
             })
 
             percent.value = ((index + 1) / IMAGES.length) * 100
